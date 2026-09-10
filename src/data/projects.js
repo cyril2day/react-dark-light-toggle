@@ -67,6 +67,6 @@ const projects = [
       "Showcase website for a freelancer using Astro and Tailwind CSS.",
     type: "Portfolio",
   },
-];
+]
 
-export default projects;
+export default projects

@@ -14,6 +14,6 @@ const experiences = [
     company: "WebStart",
     years: "2019 - 2020",
   },
-];
+]
 
-export default experiences;
+export default experiences
