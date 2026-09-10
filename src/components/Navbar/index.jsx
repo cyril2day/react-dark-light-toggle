@@ -1,4 +1,9 @@
+import { useTheme } from '../../context/ThemeProvider'
+import { Moon, Sun } from 'lucide-react'
+
 const Navbar = () => {
+  const { theme, toggleTheme } = useTheme()
+
   const navLinks = [
     { label: 'Home', target: 'hero' },
     { label: 'Work', target: 'projects' },
@@ -24,6 +29,10 @@ const Navbar = () => {
               {label}
             </a>
           ))}
+
+          <button onClick={toggleTheme}>
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} /> }
+          </button>
         </div>
       </div>
     </nav>
