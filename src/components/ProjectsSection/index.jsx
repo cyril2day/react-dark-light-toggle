@@ -1,13 +1,27 @@
 import ProjectCard from './ProjectCard'
+import projects from '../../data/projects'
 
 const ProjectsSection = () => {
   return (
-    <section className='min-h-screen py-20'>
-      <h1>Projects Section</h1>
+    <section className='scroll-mt-24 min-h-screen py-20 px-4 text-center bg-white dark:bg-gray-900 dark:text-white'>
+      <h2 className='text-3xl font-semibold text-gray-800 dark:text-white'>
+        My Work 
+      </h2>
 
-      <p>
-        Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
-      </p>
+      <h3 className='text-4xl font-bold mb-8 text-blue-600 dark:text-blue-400'>
+        Featured Projects
+      </h3>
+
+      {/* Project Cards */}
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+        {projects.map((project, idx) => (
+          <div
+            key={idx}
+          >
+            {project.title}
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
