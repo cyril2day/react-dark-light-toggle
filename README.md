@@ -1,16 +1,62 @@
-# React + Vite
+# Dark/Light Mode Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A developer portfolio website showcasing dark and light theme switching, built as a demonstration of core React features and modern front-end practices.
 
-Currently, two official plugins are available:
+**Live Site:** [https://psi.github.io/web-dark-light-mode](https://psi.github.io/web-dark-light-mode)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This single-page portfolio features a dark/light theme toggle with persistence, a filterable projects gallery, a testimonial carousel, a skills & experience timeline, and a contact section — all fully responsive from mobile to desktop.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## React Features Demonstrated
 
-## Expanding the Oxlint configuration
+- **Context API** — `ThemeContext` provides theme state across the entire component tree without prop drilling
+- **Custom Hook** — `useTheme()` abstracts context consumption into a reusable hook
+- **Controlled Component State** — `useState` drives the project filter, testimonial carousel index, and mobile menu toggle
+- **Component Composition** — Parent components manage state and pass data via props to presentational children (e.g., `RecommendationsSection` → `TestimonialCard`)
+- **StrictMode** — Enabled in `main.jsx` for highlighting potential issues during development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Tech Stack
+
+| Category | Technology |
+|---|---|
+| UI Library | React 19 |
+| Build Tool | Vite 8 |
+| CSS | Tailwind CSS v4 (utility-first, `dark:` variant via class strategy) |
+| Icons | lucide-react, react-icons |
+| Linter | oxlint |
+| Package Manager | pnpm |
+| Hosting | GitHub Pages |
+
+## Key Sections
+
+- **Hero** — Profile introduction with call-to-action buttons
+- **Projects** — 10 portfolio cards with category-based filtering (All, Business, Blog, E-Commerce, Portfolio, Mobile, Dashboard)
+- **Skills & Experience** — Technology skill grid with icons and a work experience timeline
+- **Testimonials** — Carousel with navigation arrows and company logos
+- **Contact** — Contact form with name, email, and message fields
+
+## Project Structure
+
+```
+src/
+├── main.jsx                          # App entry with StrictMode
+├── App.jsx                           # Root component with ThemeProvider
+├── App.css                           # Tailwind imports + dark mode config
+├── context/
+│   └── ThemeProvider.jsx             # Theme context + toggle logic
+├── data/                             # Content data (projects, testimonials, etc.)
+└── components/
+    ├── Navbar/                       # Fixed nav with theme toggle + mobile menu
+    ├── Hero/                         # Hero section
+    ├── ScrollDots/                   # Vertical dot navigation
+    ├── ProjectsSection/              # Filterable project grid
+    ├── SkillsExperienceSection/      # Skills grid + experience timeline
+    ├── RecommendationsSection/       # Testimonial carousel
+    ├── ContactSection/               # Contact form
+    └── Footer/                       # Site footer
+```
+
+## Dark Mode Implementation
+
+The theme toggle uses a **class-based strategy** on the `<html>` element. The `ThemeProvider` context manages the active theme and persists the user's preference to `localStorage`. Tailwind's `dark:` variant is configured via a custom variant in `App.css` to react to the `.dark` class.
