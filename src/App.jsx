@@ -1,8 +1,31 @@
+import ThemeProvider from './context/ThemeProvider'
+import Navbar from './components/Navbar'
+import ScrollDots from './components/ScrollDots'
+import Hero from './components/Hero'
+import ProjectsSection from './components/ProjectsSection'
+import SkillsExperienceSection from './components/SkillsExperienceSection'
+import RecommendationsSection from './components/RecommendationsSection'
+import ContactSection from './components/ContactSection'
+import Footer from './components/Footer'
+
+ThemeProvider
 export const App = () => {
   return (
-    <div>
-      App
-    </div>
+    <ThemeProvider>
+      <div className='bg-white dark:bg-gray-900 text-gray-900 dark:text-white'>
+        App content. 
+
+        <Navbar />
+        <ScrollDots />
+
+        <div id='hero'><Hero /></div>
+        <div id='projects'><ProjectsSection /></div>
+        <div id='skills'><SkillsExperienceSection /></div>
+        <div id='recommendations'><RecommendationsSection /></div>
+        <div id='contact'><ContactSection /></div>
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 
