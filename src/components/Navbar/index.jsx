@@ -1,8 +1,10 @@
 import { useTheme } from '../../context/ThemeProvider'
-import { Moon, Sun } from 'lucide-react'
+import { Moon, Sun, Menu, X } from 'lucide-react'
+import { useState } from 'react'
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const navLinks = [
     { label: 'Home', target: 'hero' },
@@ -34,7 +36,29 @@ const Navbar = () => {
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} /> }
           </button>
         </div>
+        
+        <button 
+          className='md:hidden'
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {menuOpen && (
+        <div className='md:hidden flex flex-col items-start px-6 pb-4 space-y-4'>
+          {navLinks.map(({ label, target }) => (
+            <a
+              key={label}
+              href={`#${target}`}
+              onClick={() => setMenuOpen(false)}
+              className='transition hover:text-blue-500'
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   )
 }
