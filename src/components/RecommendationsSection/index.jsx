@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import ArrowNavigation from './ArrowNavigation'
-import CompanyLogo from './CompanyLogo'
 import TestimonialCard from './TestimonialCard'
 import testimonials from '../../data/testimonials'
-import { useState } from 'react'
+import CompanyLogo from './CompanyLogo'
+import companyLogos from '../../data/companyLogos'
 
 const RecommendationsSection = () => {
 
@@ -22,6 +23,7 @@ const RecommendationsSection = () => {
       <h2 className='text-3xl font-semibold text-gray-800 dark:text-white'>
         Testimonials
       </h2>
+
       <h3 className='text-4xl font-bold text-blue-600 dark:text-blue-400 mb-16'>
         What People Say
       </h3>
@@ -36,6 +38,15 @@ const RecommendationsSection = () => {
       />
     
       {/* Logos */}
+      <div className='flex flex-wrap justify-center gap-10 mt-16'>
+        {companyLogos.map((logo, idx) => (
+          <CompanyLogo 
+            key={idx}
+            logo={logo}
+            idx={idx}
+          />
+        ))}
+      </div>
     </section>
   )
 }
