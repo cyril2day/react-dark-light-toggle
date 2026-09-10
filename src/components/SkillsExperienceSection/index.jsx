@@ -39,7 +39,7 @@ const SkillsExperienceSection = () => {
       What I Do & Where I've Been
     </h3>
 
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-12 max-2-6xl mx-auto'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto'>
       {/* Skills */}
       <div>
         <h4 className='text-2xl font-semibold mb-4'>Skills</h4>
