@@ -15,11 +15,10 @@ const ProjectsSection = () => {
       {/* Project Cards */}
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
         {projects.map((project, idx) => (
-          <div
+          <ProjectCard
             key={idx}
-          >
-            {project.title}
-          </div>
+            project={project}
+          />
         ))}
       </div>
     </section>
